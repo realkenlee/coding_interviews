@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent zoom on iOS */
+html {
+  touch-action: manipulation;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* CodeMirror mobile optimizations */
+.cm-editor {
+  font-size: 15px !important;
+  height: 100% !important;
+}
+
+.cm-scroller {
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.cm-content {
+  padding-bottom: 50vh !important; /* Extra space for keyboard */
+}
+
+/* Prevent text selection issues on mobile */
+.cm-line {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* iOS safe area padding */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Smooth transitions */
+.collapsible-content {
+  transition: max-height 0.2s ease-out, opacity 0.2s ease-out;
+  overflow: hidden;
+}
+
+/* Keyboard toolbar styling */
+.keyboard-toolbar {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.keyboard-toolbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
